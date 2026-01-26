@@ -16,12 +16,19 @@ int main() {
         if (std::cin.fail()) {
             std::cin.clear(); //to clear off the error
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //this will erase all trash words
-            continue; //this will jump to the start of the menu
+            std::cout << "WHAT IS THAT????, try again!" << std::endl;
+            break;
         }
         switch (choice) {
         case 1:
             std::cout << "Enter one day of the week, select from 1 to 7: ";
             std::cin >> dayNum;
+            if (std::cin.fail()) {
+                std::cin.clear(); //to clear off the error
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //this will erase all trash words
+                std::cout << "WHAT IS THAT????, try again!" << std::endl;
+                break;
+            }
             if (dayNum >= 1 && dayNum <= 7) {
                 std::cout << "Day: " << days[dayNum - 1] << std::endl;
             }
@@ -32,6 +39,12 @@ int main() {
         case 2:
             std::cout << "Enter the number of the month, select from 1 to 12: ";
             std::cin >> monthNum;
+            if (std::cin.fail()) {
+                std::cin.clear(); //to clear off the error
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //this will erase all trash words
+                std::cout << "WHAT IS THAT????, try again!" << std::endl;
+                break;
+            }
             if (monthNum >= 1 && monthNum <= 12) {
                 std::cout << "Month: " << months[monthNum - 1] << std::endl;
             }
